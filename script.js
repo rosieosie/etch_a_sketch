@@ -1,7 +1,7 @@
 
 console.log(6)
 
-function createGrid(gridSize) {
+function createGrid(gridSize) {     
     console.log(gridSize);
     const container = document.querySelector("#container");
     const squareWidth = 600 / gridSize;
@@ -15,5 +15,17 @@ function createGrid(gridSize) {
     };
 };
 
+function addMouseDraw () { 
+    console.log(9);
+    const squares = document.querySelectorAll(".grid-item")
+        console.log("brazil!");
+        squares.forEach((square) => {
+            square.addEventListener("mouseenter", () => {
+                console.log("egg!");
+                square.classList.add("painted");
+            });
+        });
+};
 
-createGrid(25);
+createGrid(50);
+addMouseDraw();

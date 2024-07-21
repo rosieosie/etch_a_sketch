@@ -2,9 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     width: 600px;
+    border: 1px solid rgb(212, 207, 207);
 }
 
 .grid-item {
     flex: 0;
-    background-color: blue;
+}
+
+.painted {
+    background-color: rgb(0, 0, 0);
 }
