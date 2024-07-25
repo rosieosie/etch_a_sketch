@@ -1,8 +1,9 @@
 const resButton = document.querySelector("#res");
 const clearButton = document.querySelector("#clear");
+const resDisplay = document.querySelector("#res-display");
+
 createGrid(25);
-
-
+resDisplay.textContent = "Canvas resolution: " + 25 + " x " + 25;
 
 resButton.addEventListener("click", () => {
     let resNumber;
@@ -19,6 +20,7 @@ resButton.addEventListener("click", () => {
 
     console.log(resNumber);
     createGrid(resNumber);
+    resDisplay.textContent = "Canvs resolution: " + resNumber + " * " + resNumber;
     
 });
 
@@ -63,12 +65,15 @@ function clearGrid() {
 };
 
 
+
+
+
 // TODO 
 // resolution button functionality !
 // start w functioning grid !
 // res button turn to res adjust and clear canvas when canvas painted !
 // separate clear canvas button !
-// display canvas resolution
+// display canvas resolution 
 // change colour + random colour
 // stop and start painting w/ click
 // save file - potentially
