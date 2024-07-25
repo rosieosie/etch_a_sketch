@@ -1,9 +1,11 @@
-
+const resButton = document.querySelector("#res");
+const clearButton = document.querySelector("#clear");
 createGrid(25);
 
-const resButton = document.querySelector("#res");
+
+
 resButton.addEventListener("click", () => {
-    let resNumber 
+    let resNumber;
     
     while(true) {
         resNumber = prompt("Enter a number between 1 & 100");
@@ -20,6 +22,10 @@ resButton.addEventListener("click", () => {
     
 });
 
+clearButton.addEventListener("click", () => {
+    clearGrid()
+});
+
 function createGrid(gridSize) {     
     console.log(gridSize);
     const container = document.querySelector("#container");
@@ -32,27 +38,36 @@ function createGrid(gridSize) {
         div.classList.add("grid-item");
         container.appendChild(div);
     };
+    resButton.textContent = "Change canvas resolution";
     addMouseDraw();
 };
 
-function addMouseDraw () { 
+function addMouseDraw() { 
     console.log(9);
-    const squares = document.querySelectorAll(".grid-item")
+    const squares = document.querySelectorAll(".grid-item");
         console.log("brazil!");
         squares.forEach((square) => {
             square.addEventListener("mouseenter", () => {
+                drawn = true;
                 square.classList.add("painted");
+                resButton.textContent = "Change canvas resolution and clear canvas";
             });
         });
 };
 
+function clearGrid() {
+    const squares = document.querySelectorAll(".grid-item");
+    squares.forEach((square) => {
+        square.classList.remove("painted");
+    })
+};
 
 
 // TODO 
 // resolution button functionality !
 // start w functioning grid !
-// res button turn to res adjust and clear canvas when canvas painted 
-// separate clear canvas button
+// res button turn to res adjust and clear canvas when canvas painted !
+// separate clear canvas button !
 // display canvas resolution
 // change colour + random colour
 // stop and start painting w/ click
