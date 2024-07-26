@@ -1,6 +1,14 @@
 const resButton = document.querySelector("#res");
 const clearButton = document.querySelector("#clear");
 const resDisplay = document.querySelector("#res-display");
+const colorPicker = document.querySelector("#favcolor")
+let paintColor = "#000000";
+
+colorPicker.addEventListener("change", (event) => {
+    paintColor = colorPicker.value;
+    console.log(paintColor);
+});
+
 
 createGrid(25);
 resDisplay.textContent = "Canvas resolution: " + 25 + " x " + 25;
@@ -20,12 +28,13 @@ resButton.addEventListener("click", () => {
 
     console.log(resNumber);
     createGrid(resNumber);
-    resDisplay.textContent = "Canvs resolution: " + resNumber + " * " + resNumber;
+    resDisplay.textContent = "Canvas resolution: " + resNumber + " x " + resNumber;
     
 });
 
 clearButton.addEventListener("click", () => {
-    clearGrid()
+    clearGrid();
+    console.log("clear");
 });
 
 function createGrid(gridSize) {     
@@ -45,23 +54,22 @@ function createGrid(gridSize) {
 };
 
 function addMouseDraw() { 
-    console.log(9);
     const squares = document.querySelectorAll(".grid-item");
         console.log("brazil!");
         squares.forEach((square) => {
             square.addEventListener("mouseenter", () => {
-                drawn = true;
-                square.classList.add("painted");
+                square.style.background = paintColor;
                 resButton.textContent = "Change canvas resolution and clear canvas";
             });
         });
 };
 
 function clearGrid() {
-    const squares = document.querySelectorAll(".grid-item");
+     const squares = document.querySelectorAll(".grid-item");
     squares.forEach((square) => {
-        square.classList.remove("painted");
-    })
+        square.style.background = "white";
+    }) 
+
 };
 
 
@@ -72,8 +80,10 @@ function clearGrid() {
 // resolution button functionality !
 // start w functioning grid !
 // res button turn to res adjust and clear canvas when canvas painted !
+// display canvas resolution !
+// change colour !
 // separate clear canvas button !
-// display canvas resolution 
-// change colour + random colour
+// random colour 
 // stop and start painting w/ click
 // save file - potentially
+// css
